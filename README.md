@@ -1,3 +1,3 @@
-# fedora-minimal-i3gaps
+# fedora-setup
 
-My setup with Fedora minimal installation and i3gaps
+My Fedora Workstation setup

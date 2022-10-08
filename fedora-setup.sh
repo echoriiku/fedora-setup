@@ -2,8 +2,8 @@
 
 # DNF Config
 echo "max_parallel_downloads=20
-defaultyes=True
-fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
+defaultyes=True" | sudo tee -a /etc/dnf/dnf.conf
+
 sudo dnf clean all
 
 # Install Rpmfusion repo
@@ -12,7 +12,6 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 # Enable COPRs
 sudo dnf copr enable -y atim/bottom
 sudo dnf copr enable -y varlad/helix
-sudo dnf copr enable -y atim/ly
 
 sudo dnf upgrade -y --refresh
 
@@ -25,10 +24,7 @@ flatpak install flathub $(cat fedora.flatpackages) -y
 
 # Compile and install Cargo packages
 echo "export PATH=/home/$USER/.cargo/bin:$PATH" >> cargo.sh && sudo mv ./cargo.sh /etc/profile.d/
-cargo install xplr zellij exa trashy dust
-
-# Enable Ly display manager service
-sudo systemctl enable ly.service
+cargo install {broot, du-dust, fd-find, toipe, trashy, tree-sitter-cli, xplr, zellij}
 
 # enable fish
 chsh -s $(which fish)

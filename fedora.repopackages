@@ -8,7 +8,7 @@ yt-dlp
 fish
 @fonts 
 @hardware-support
-kitty
+alacritty
 firefox 
 vim 
 cargo
@@ -18,3 +18,4 @@ helix
 bottom
 mpv
 tmux
+glow

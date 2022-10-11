@@ -25,22 +25,15 @@ flatpak install flathub $(cat fedora.flatpackages) -y
 
 # compile and install Cargo packages
 echo "export PATH=/home/$USER/.cargo/bin:$PATH" >> cargo.sh && sudo mv ./cargo.sh /etc/profile.d/
-cargo install {broot, du-dust, fd-find, toipe, trashy, tree-sitter-cli, xplr, zellij}
+cargo install {du-dust, fd-find, toipe, trashy, tree-sitter-cli, xplr, zellij}
 
 # enable fish
 chsh -s $(which fish)
 
-# create myrepos dotfiles dir.
-mkdir -pv $HOME/myrepos/dotfiles
-
-# download config files 
-git clone https://github.com/echoriiku/dotfiles.git $HOME/myrepos/dotfiles
-
 # setup dotfiles
-cd $HOME/myrepos/dotfiles
+echo "Intalling Chezmoi"
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b $HOME/.local/bin
+chezmoi init --apply https://github.com/echoriiku/dotfiles.git
+
 sleep 3
 echo "Installation complete"
-sleep 1
-echo "Now starting dotfiles setup"
-sleep 2
-./setup.sh

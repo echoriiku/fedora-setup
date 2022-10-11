@@ -25,8 +25,7 @@ flatpak install flathub $(cat fedora.flatpackages) -y
 
 # compile and install Cargo packages
 echo "export PATH=/home/$USER/.cargo/bin:$PATH" >> cargo.sh && sudo mv ./cargo.sh /etc/profile.d/
-cargo install {du-dust, fd-find, toipe, trashy, tree-sitter-cli, xplr, zellij}
-
+cargo install $(cat fedora.cargopackages) 
 # enable fish
 chsh -s $(which fish)
 

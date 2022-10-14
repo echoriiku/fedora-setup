@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # DNF config
 echo "max_parallel_downloads=20
@@ -11,6 +11,7 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 
 # enable COPRs
 sudo dnf copr enable -y atim/bottom
+sudo dnf copr enable -y atim/lazygit
 sudo dnf copr enable -y varlad/helix
 sudo dnf copr enable -y tokariew/glow
 
@@ -30,6 +31,16 @@ cargo install $(cat fedora.cargopackages)
 # alacritty theme changer
 sudo npm i -g alacritty-themes
 
+# font setup
+if [[ -d ~/.local/share/fonts/ ]]
+then
+  echo "Downloading terminal font"
+else
+  mkdir -vp ~/.local/share/fonts/
+fi
+
+cd && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip
+unzip CascadiaCode.zip -d ~/.local/share/fonts/
 # enable fish
 chsh -s $(which fish)
 

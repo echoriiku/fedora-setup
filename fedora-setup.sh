@@ -14,6 +14,7 @@ sudo dnf copr enable -y atim/bottom
 sudo dnf copr enable -y atim/lazygit
 sudo dnf copr enable -y varlad/helix
 sudo dnf copr enable -y tokariew/glow
+sudo dnf copr enable -y pennbauman/ports
 
 sudo dnf upgrade -y --refresh
 

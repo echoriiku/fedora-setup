@@ -6,17 +6,12 @@ yt-dlp
 fish
 @fonts 
 @hardware-support
-kitty
 alacritty
-firefox 
 vim 
 cargo
 zoxide
-helix
 bottom
 mpv
 tmux
-glow
 npm
-lazygit
 lf

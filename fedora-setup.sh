@@ -11,7 +11,6 @@ sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rele
 
 # enable COPRs
 sudo dnf copr enable -y atim/bottom
-sudo dnf copr enable -y varlad/helix
 sudo dnf copr enable -y pennbauman/ports
 
 sudo dnf upgrade -y --refresh
@@ -41,3 +40,13 @@ chezmoi init --apply https://github.com/echoriiku/dotfiles.git
 echo "Installation complete"
 
 echo "Install Starship prompt"
+
+# helix install
+mkdir repos && cd repos
+git clone https://github.com/helix-editor/helix
+cd helix
+cargo install --path helix-term
+
+cd
+curl -sS https://starship.rs/install.sh | sh
+
